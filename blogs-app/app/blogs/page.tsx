@@ -11,7 +11,7 @@ const Blogs = () => {
         {blogs.map(blog => (
           <li key={blog.id}>
             <Link href={`/blogs/${blog.id}`}>
-                <h3>{blog.title}</h3>
+                <h3 className="font-bold hover:underline">{blog.title}</h3>
             </Link>
             <p>By {blog.author}</p>
             <a href={blog.url} target="_blank" rel="noopener noreferrer">

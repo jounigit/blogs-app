@@ -42,3 +42,10 @@ export const addBlog = (title: string, author: string, url: string) => {
   }
   blogs.push(newBlog)
 }
+
+export const likeBlog = (id: number) => {
+  const blog = getBlogById(id)
+  if (blog) {
+    blog.likes += 1
+  }
+}
