@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-zinc-50 font-sans dark:bg-black margin: 2xl">
+    <html lang="en">
       <body>
         <nav className="m-4">
           <Link href="/" className="font-bold text-fg-brand hover:underline">home</Link>
