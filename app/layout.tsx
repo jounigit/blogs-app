@@ -7,11 +7,6 @@ export const metadata: Metadata = {
   description: "A simple blogs app built with Next.js",
 };
 
-<meta
-  name="format-detection"
-  content="telephone=no, date=no, email=no, address=no"
-/>
-
 export default function RootLayout({
   children,
 }: {
