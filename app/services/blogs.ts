@@ -16,7 +16,7 @@ const blogs = [
   {
     id: 3,
     title: "next.js supports both static and dynamic rendering",
-    author: "Bob Smith",
+    author: "Bob John's boy Smith",
     url: "https://nextjs.org/docs/basic-features/static-site-generation",
     likes: 2
   },
