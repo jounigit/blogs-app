@@ -1,51 +1,32 @@
-const blogs = [
-  { 
-    id: 1, 
-    title: "next.js utilizes React Server Components", 
-    author: "John Doe", 
-    url: "https://nextjs.org/docs", 
-    likes: 5 
-},
-  { 
-    id: 2, 
-    title: "next.js is built on top of React", 
-    author: "Jane Doe", 
-    url: "https://reactjs.org/docs/getting-started.html", 
-    likes: 3 
-},
-  {
-    id: 3,
-    title: "next.js supports both static and dynamic rendering",
-    author: "Bob John's boy Smith",
-    url: "https://nextjs.org/docs/basic-features/static-site-generation",
-    likes: 2
-  },
-]
+import { eq } from "drizzle-orm";
+import { db } from "../../db";
+import { blogs } from "../../db/schema";
+// let nextId = 4
 
-let nextId = 4
-
-export const getBlogs = () => {
-  return blogs
+export const getBlogs = async () => {
+  return db.query.blogs.findMany()
 }
 
-export const getBlogById = (id: number) => {
-  return blogs.find(blog => blog.id === id)
+export const getBlogById = async (id: number) => {
+  return db.query.blogs.findFirst({
+    where: eq(blogs.id, id)
+  })
 }
 
-export const addBlog = (title: string, author: string, url: string) => {
-  const newBlog = {
-    id: nextId++,
+export const addBlog = async (title: string, author: string, url: string) => {
+  await db.insert(blogs).values({
     title,
     author,
     url,
-    likes: 0
-  }
-  blogs.push(newBlog)
+  })    
 }
 
-export const likeBlog = (id: number) => {
-  const blog = getBlogById(id)
+export const likeBlog = async (id: number) => {
+  const blog = await getBlogById(id)
   if (blog) {
-    blog.likes += 1
+    await db
+    .update(blogs)
+    .set({ likes: blog.likes + 1 })
+    .where(eq(blogs.id, id))
   }
 }
