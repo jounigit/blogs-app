@@ -1,9 +1,14 @@
-import { eq } from "drizzle-orm";
+import { eq, ilike } from "drizzle-orm";
 import { db } from "../../db";
 import { blogs } from "../../db/schema";
-// let nextId = 4
 
-export const getBlogs = async () => {
+export const getBlogs = async (filter?: string) => {
+  if (filter) {
+    const filteredBlogs = await db.select()
+    .from(blogs).where(ilike(blogs.title, `%${filter.toLowerCase()}%`))
+    return filteredBlogs
+  }
+
   return db.query.blogs.findMany()
 }
 

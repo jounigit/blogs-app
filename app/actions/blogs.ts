@@ -16,6 +16,7 @@ export const createBlog = async (formData: FormData) => {
 
 export const toggleLikeBlog = async (formData: FormData) => {
   const id = Number(formData.get("id"))
+  
   await likeBlog(id)
   revalidatePath(`/blogs/${id}`)
   revalidatePath("/blogs")
