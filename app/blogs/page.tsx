@@ -10,10 +10,6 @@ const Blogs = async ({ searchParams, }: {
 
   const blogs = await getBlogs(filter)
 
-  // const blogs = filter ? allBlogs.filter(
-  //   blog => blog.title.toLowerCase().includes(filter.toLowerCase()))
-  //   : allBlogs
-
   const sortedBlogs = [...blogs].sort((a, b) => b.likes - a.likes)
 
   const searchButton = (
@@ -34,10 +30,9 @@ const Blogs = async ({ searchParams, }: {
     <div className="m-4">
       <h2 className="text-2xl text-align: start">blogs</h2>
       {searchButton}
-      <ul>
-        <p>--------------------------</p>
+      <ul className="list-disc pl-5">
         {sortedBlogs.map(blog => (
-          <li key={blog.id}>
+          <li key={blog.id} className="mb-4">
             <Link href={`/blogs/${blog.id}`}>
                 <h3 className="font-bold hover:underline">{blog.title}</h3>
             </Link>
@@ -46,7 +41,7 @@ const Blogs = async ({ searchParams, }: {
                 Read more
             </a>
             <p>Likes: {blog.likes}</p>
-            <p>--------------------------</p>
+            {/* <p>--------------------------</p> */}
           </li>
         ))}
       </ul>

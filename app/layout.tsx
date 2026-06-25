@@ -21,6 +21,8 @@ export default function RootLayout({
           <Link href="/blogs" className="font-bold text-fg-brand hover:underline">blogs</Link>
           {" | "}
           <Link href="/blogs/new" className="font-bold text-fg-brand hover:underline">create new blog</Link>
+          {" | "}
+          <Link href="/users" className="font-bold text-fg-brand hover:underline">users</Link>
         </nav>
         {children}
       </body>
