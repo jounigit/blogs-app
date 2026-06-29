@@ -1,0 +1,1 @@
+ALTER TABLE "blogs" ADD COLUMN "password_hash" text DEFAULT '' NOT NULL;
