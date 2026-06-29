@@ -1,6 +1,6 @@
-import { eq, ilike, sql } from "drizzle-orm";
-import { db } from "../../db";
-import { blogs } from "../../db/schema";
+import { eq, ilike } from "drizzle-orm";
+import { db } from "@/db"
+import { blogs } from "@/db/schema";
 import { getCurrentUser } from "./session";
 
 export const getBlogs = async (filter?: string) => {
