@@ -14,15 +14,16 @@ export const createBlog = async (
     redirect("/login")
   }
   const title = formData.get("title") as string
-  const author = formData.get("author") as string
-  const url = formData.get("url") as string
-
   if (!title || title.length < 5) {
     return { error: "Blog title must be at least 5 characters long"}
   }
+
+  const author = formData.get("author") as string
   if (!author || author.length < 5) {
     return { error: "Blog author must be at least 5 characters long"}
   }
+
+  const url = formData.get("url") as string
   if (!url || url.length < 5) {
     return { error: "Blog url must be at least 5 characters long"}
   }
