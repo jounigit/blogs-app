@@ -5,11 +5,13 @@ export type BlogFormValues = {
 }
 
 export type BlogFormState = {
-  errors: Partial<Record<keyof BlogFormValues | "form", string>>
-  values: BlogFormValues
+  errors: Record<string, string>,
+  success: boolean,
+  values: BlogFormValues,
 }
 
 export const initialState: BlogFormState = {
   errors: {},
+  success: false,
   values: { title: "", author: "", url: "" },
 }

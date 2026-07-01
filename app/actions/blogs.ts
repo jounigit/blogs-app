@@ -34,7 +34,10 @@ export const createBlog = async (
   }
 
   if (Object.keys(errors).length > 0) {
-    return { errors, values: { title, author, url } }
+    return { 
+      errors, 
+      success: false,
+      values: { title, author, url } }
   }
 
   try {
@@ -44,12 +47,17 @@ export const createBlog = async (
       errors: {
         form: error instanceof Error ? error.message : "Unable to create blog",
       },
-      values: { title, author, url }
+      values: { title, author, url },
+      success: false
     }
   }
 
   revalidatePath("/blogs")
-  redirect("/blogs")
+  return { 
+    errors: {},
+    values: { title, author, url },
+    success: true
+  }
 }
 
 export const toggleLikeBlog = async (formData: FormData) => {
