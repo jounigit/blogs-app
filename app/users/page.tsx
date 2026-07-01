@@ -5,8 +5,8 @@ const Users = async () => {
   const users = await getUsers()
 
   return (
-    <div className="m-4">
-      <h2 className="text-2xl text-align: start mb-4">users</h2>
+    <div className="max-w-2xl mx-auto p-6">
+      <h2 className="text-2xl font-bold mb-4">users</h2>
       <ul className="list-disc pl-5">
         {users.map(user => (
           <li key={user.id}>

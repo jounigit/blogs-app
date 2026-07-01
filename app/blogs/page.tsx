@@ -27,14 +27,14 @@ const Blogs = async ({ searchParams, }: {
   )
 
   return (
-    <div className="m-4">
-      <h2 className="text-2xl text-align: start">blogs</h2>
+    <div className="max-w-2xl mx-auto p-6">
+      <h2 className="text-2xl font-bold mb-4">blogs</h2>
       {searchButton}
-      <ul className="list-disc pl-5">
+      <ul className="space-y-2">
         {sortedBlogs.map(blog => (
           <li key={blog.id} className="mb-4">
             <Link href={`/blogs/${blog.id}`}>
-                <h3 className="font-bold hover:underline">{blog.title}</h3>
+                <h3 className="text-blue-600 hover:underline">{blog.title}</h3>
             </Link>
             <p>By {blog.author}</p>
             <a href={blog.url} target="_blank" rel="noopener noreferrer">

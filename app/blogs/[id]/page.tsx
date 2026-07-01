@@ -11,7 +11,7 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     }
 
     return (
-        <div className="m-4">
+        <div className="max-w-2xl mx-auto p-6">
             <h2 className="text-2xl text-align: start">{blog.title}</h2>
             <p>By {blog.author}</p>
             <a href={blog.url} target="_blank" rel="noopener noreferrer">

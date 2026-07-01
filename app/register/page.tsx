@@ -26,7 +26,7 @@ export default function RegisterPage() {
   }, [state, showNotification, router])
   
   return (
-    <div className="m-4">
+    <div className="max-w-2xl mx-auto p-6">
       <h2 className="text-2xl font-bold">Register</h2>
       <form action={formAction}>
         <div>
