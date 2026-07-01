@@ -4,39 +4,57 @@ import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
 import { addBlog, likeBlog } from "../services/blogs"
 import { auth } from "@/auth"
+import type { BlogFormState } from "./blogs-state"
 
 export const createBlog = async (
-  prevState: {error: string},
+  _prevState: BlogFormState,
   formData: FormData
 ) => {
   const session = await auth()
   if (!session) {
     redirect("/login")
   }
+
   const title = formData.get("title") as string
-  if (!title || title.length < 5) {
-    return { error: "Blog title must be at least 5 characters long"}
-  }
-
   const author = formData.get("author") as string
-  if (!author || author.length < 5) {
-    return { error: "Blog author must be at least 5 characters long"}
-  }
-
   const url = formData.get("url") as string
-  if (!url || url.length < 5) {
-    return { error: "Blog url must be at least 5 characters long"}
+
+  const errors: BlogFormState["errors"] = {}
+
+  if (!title || title.length < 5) {
+    errors.title = "Blog title must be at least 5 characters long"
   }
 
-  await addBlog(title, author, url)
-  
+  if (!author || author.length < 5) {
+    errors.author = "Blog author must be at least 5 characters long"
+  }
+
+  if (!url || url.length < 5) {
+    errors.url = "Blog url must be at least 5 characters long"
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return { errors, values: { title, author, url } }
+  }
+
+  try {
+    await addBlog(title, author, url)
+  } catch (error) {
+    return {
+      errors: {
+        form: error instanceof Error ? error.message : "Unable to create blog",
+      },
+      values: { title, author, url }
+    }
+  }
+
   revalidatePath("/blogs")
   redirect("/blogs")
 }
 
 export const toggleLikeBlog = async (formData: FormData) => {
   const id = Number(formData.get("id"))
-  
+
   await likeBlog(id)
   revalidatePath(`/blogs/${id}`)
   revalidatePath("/blogs")

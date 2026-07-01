@@ -13,6 +13,17 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // Add custom rules here.
+      // "no-console": "warn",
+      // "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      // "no-debugger": "warn",
+      // "no-var": "error",
+      // "no-duplicate-imports": "error",
+      "no-undef": "error",
+    },
+  },
 ]);
 
 export default eslintConfig;
