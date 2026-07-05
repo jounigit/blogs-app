@@ -5,6 +5,7 @@ import { createBlog } from "../../actions/blogs"
 import { initialState } from "../../actions/blogs-state"
 import { useNotification } from "@/app/components/NotificationContext"
 import { useRouter } from "next/navigation"
+import SubmitButton from "@/app/components/SubmitButton"
 
 const NewBlog = () => {
   const [state, formAction] = useActionState(createBlog, initialState)
@@ -61,12 +62,9 @@ const NewBlog = () => {
           {state.errors?.url && <p className="text-red-600 text-sm">{state.errors?.url}</p>}
         </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
-        >
+        <SubmitButton>
           create
-        </button>
+        </SubmitButton>
       </form>
     </div>
   )

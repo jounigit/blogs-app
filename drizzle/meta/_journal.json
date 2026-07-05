@@ -71,6 +71,13 @@
       "when": 1782730635318,
       "tag": "0009_peaceful_mandrill",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1782981410559,
+      "tag": "0010_fresh_nebula",
+      "breakpoints": true
     }
   ]
 }

@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import SubmitButton from "../components/SubmitButton"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -29,29 +30,26 @@ export default function LoginPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-2xl">Login</h2>
+      <h2 className="text-2xl font-bold">Login</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
+      <form onSubmit={handleSubmit}>
         <div>
-          <label>
-            Username
+          <label>Username</label>
             <input type="text" name="username" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
              />
-          </label>
         </div>
         <div>
-          <label>
-            Password
+          <label>Password</label>
             <input type="password" name="password" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
              />
-          </label>
         </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">
-            Login
-        </button>
+        <SubmitButton>
+          Login
+        </SubmitButton>
       </form>
     </div>
   )
 }
+    

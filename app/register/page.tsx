@@ -4,6 +4,7 @@ import { registerUser } from "@/app/actions/users"
 import { useActionState, useEffect } from "react"
 import { useNotification } from "../components/NotificationContext"
 import { useRouter } from "next/navigation"
+import SubmitButton from "../components/SubmitButton"
 
 export default function RegisterPage() {
   const [state, formAction] = useActionState(
@@ -69,10 +70,9 @@ export default function RegisterPage() {
           {state.errors?.confirmPassword && <p className="text-red-600 text-sm">{state.errors?.confirmPassword}</p>}
         </div>
         
-        <button type="submit" 
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">
+        <SubmitButton>
           Register
-        </button>
+        </SubmitButton>
       </form>
     </div>
   )
