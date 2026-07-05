@@ -9,7 +9,7 @@ export default async function MePage() {
     return (
       <div className="max-w-2xl mx-auto p-6">
         <h2 className="text-2xl font-bold">MyProfile</h2>
-        <p>Loading user data...</p>
+        <p>No user found.</p>
       </div>
     )
   }
