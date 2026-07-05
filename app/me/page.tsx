@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation"
 import { generateTokenForUser } from "../actions/me"
 import SubmitButton from "../components/SubmitButton"
 import { getCurrentUser } from "../services/session"
@@ -6,12 +7,7 @@ export default async function MePage() {
   const user = await getCurrentUser()
 
   if (!user) {
-    return (
-      <div className="max-w-2xl mx-auto p-6">
-        <h2 className="text-2xl font-bold">MyProfile</h2>
-        <p>No user found.</p>
-      </div>
-    )
+    redirect("/login")
   }
 
   const token = user.token || "No token found."
