@@ -1,5 +1,3 @@
-// "use client"
-
 import { generateTokenForUser } from "../actions/me"
 import SubmitButton from "../components/SubmitButton"
 import { getCurrentUser } from "../services/session"
@@ -15,12 +13,6 @@ export default async function MePage() {
       </div>
     )
   }
-
-  // const user = {
-  //   name: "John Doe",
-  //   username: "johndoe",
-  //   token: "abc123"
-  // }
 
   const token = user.token || "No token found."
 
