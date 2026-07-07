@@ -5,78 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1782317804365,
-      "tag": "0000_friendly_blue_shield",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1782406908960,
-      "tag": "0001_melodic_skrulls",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1782407763424,
-      "tag": "0002_careful_zaladane",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1782412928628,
-      "tag": "0003_curly_purple_man",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1782724498035,
-      "tag": "0004_young_blade",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1782730145830,
-      "tag": "0005_tired_starhawk",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1782730214194,
-      "tag": "0006_opposite_loners",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1782730362363,
-      "tag": "0007_absent_wasp",
-      "breakpoints": true
-    },
-    {
-      "idx": 8,
-      "version": "7",
-      "when": 1782730411932,
-      "tag": "0008_dashing_preak",
-      "breakpoints": true
-    },
-    {
-      "idx": 9,
-      "version": "7",
-      "when": 1782730635318,
-      "tag": "0009_peaceful_mandrill",
-      "breakpoints": true
-    },
-    {
-      "idx": 10,
-      "version": "7",
-      "when": 1782981410559,
-      "tag": "0010_fresh_nebula",
+      "when": 1783407308344,
+      "tag": "0000_robust_puck",
       "breakpoints": true
     }
   ]
