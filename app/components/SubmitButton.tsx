@@ -11,7 +11,7 @@ const SubmitButton = (props: SubmitButtonProps) => {
       type="submit" 
       onClick={props.onClick}
       disabled={props.disabled}
-      className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
+      className="bg-blue-600 w-fit text-white px-4 py-2 rounded mt-4 hover:bg-blue-700"
     >
       {props.children}
     </button>
