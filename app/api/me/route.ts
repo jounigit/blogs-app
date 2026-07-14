@@ -32,9 +32,9 @@ async function getUserByToken(token: string) {
     with: {
       blogs: {
         columns: {
-          id: false,
-          likes: false,
-          userId: false,
+          author: true,
+          title: true,
+          url: true,
         },
       },
     },

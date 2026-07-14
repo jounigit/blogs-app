@@ -2,8 +2,8 @@
 
 import { db } from "@/db"
 import { readingList } from "@/db/schema"
-import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
+import { readBlog } from "../services/readinglist"
 
 export async function addToReadingList(formData: FormData) {
   const userId = Number(formData.get("userId"))
@@ -13,12 +13,10 @@ export async function addToReadingList(formData: FormData) {
   revalidatePath("/me")
 }
 
-export async function getReadingListByUserId(userId: number) {
-  const list = await db.query.readingList.findMany({
-    where: eq(readingList.userId, userId),
-    with: {
-      blog: true,
-    },
-  })
-  return list
+export const toggleReadStatus = async (formData: FormData) => {
+  const userId = Number(formData.get("userId"))
+  const blogId = Number(formData.get("blogId"))
+  await readBlog(userId, blogId)
+
+  revalidatePath("/me")
 }
