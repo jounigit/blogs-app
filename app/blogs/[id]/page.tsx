@@ -14,9 +14,9 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     }
 
     return (
-        <div className="max-w-2xl mx-auto p-6">
-            <h2 className="text-2xl text-align: start">{blog.title}</h2>
-            <p>By {blog.author}</p>
+        <div id="blog-detail" className="max-w-2xl mx-auto p-6">
+            <h2 id="blog-title" className="text-2xl text-align: start">{blog.title}</h2>
+            <p id="blog-author">By {blog.author}</p>
 
             {/* forms to inline div */}
             <div className="flex flex-row gap-4">

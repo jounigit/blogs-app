@@ -20,8 +20,6 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({ user })
 }
 
-// helper function to get user without passwordHash and token by token 
-// join the user's blogs table as alias "createdBlogs" in the response
 async function getUserByToken(token: string) {
   const user = await db.query.users.findFirst({
     where: eq(users.token, token),

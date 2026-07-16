@@ -34,7 +34,7 @@ export default async function MePage() {
     <div className="max-w-2xl mx-auto mt-4 p-6 border border-gray-300 rounded shadow">
       <h2 className="text-2xl font-bold mb-4">MyProfile</h2>
       <p><span className="font-bold">Name:</span> <span className="text-sm text-gray-600">{user.name}</span></p>
-      <p><span className="font-bold">Username:</span> <span className="text-sm text-gray-600">{user.username}</span></p>
+      <p><span className="font-bold">Username:</span> <span id="user-username" className="text-sm text-gray-600">{user.username}</span></p>
 
       <hr className="border-t border-black my-4" />
 

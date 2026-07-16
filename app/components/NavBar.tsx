@@ -9,6 +9,7 @@ export default function NavBar() {
   return (
     <nav className="bg-gray-800 text-white px-6 py-3 flex justify-between items-center gap-4">
           <div className="flex-1 md:flex md:items-center md:gap-12">
+            
             <NavLink 
               href="/"
               exact
@@ -20,13 +21,16 @@ export default function NavBar() {
           
           <div className="md:flex md:items-center md:gap-12">
             <NavLink 
+              name="blogs"
               href="/blogs"
               exact
               className="hover:text-gray-300 [&.active]:underline"
             > 
               blogs 
-            </NavLink>           
+            </NavLink>
+
             <NavLink 
+              name="users"
               href="/users"
               exact
               className="hover:text-gray-300 [&.active]:underline"
@@ -34,6 +38,7 @@ export default function NavBar() {
               users 
             </NavLink>     
 
+            {/* session starts */}
             {session ? (
               <>
                 <NavLink 
@@ -43,17 +48,18 @@ export default function NavBar() {
                 > 
                   create new 
                 </NavLink>
+
                 <NavLink 
+                  name="me"
                   href="/me"
                   exact
                   className="hover:text-gray-300 [&.active]:underline"
                 > 
                   me 
-                </NavLink>
+                </NavLink>               
 
-                {/* <em className="text-gray-300">{session.user?.name} logged in</em>{" "} */}
-
-                <button 
+                <button
+                  name="logout"
                   onClick={() => signOut()}
                   className="bg-red-600 hover:bg-gray-500 px-3 py-1 rounded text-sm"
                 >
@@ -63,13 +69,16 @@ export default function NavBar() {
             ) : (
               <>
                 <NavLink 
+                  name="login"
                   href="/login"
                   exact
                   className="hover:text-gray-300 [&.active]:underline"
                 > 
                   login 
-                </NavLink>        
+                </NavLink> 
+
                 <NavLink 
+                  name="register"
                   href="/register"
                   exact
                   className="hover:text-gray-300 [&.active]:underline"
@@ -78,6 +87,7 @@ export default function NavBar() {
                 </NavLink>
               </>
             )}
+            {/* session ends */}
           </div>
           
     </nav>

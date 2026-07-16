@@ -7,9 +7,7 @@ import { useRouter } from "next/navigation"
 import SubmitButton from "../components/SubmitButton"
 
 export default function RegisterPage() {
-  const [state, formAction] = useActionState(
-    registerUser, 
-    { 
+  const [state, formAction] = useActionState( registerUser, { 
       errors: {}, 
       success: false,
       values: { username: "", name: "" } }
@@ -67,10 +65,10 @@ export default function RegisterPage() {
             <input type="password" name="confirmPassword" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
             />
-          {state.errors?.confirmPassword && <p className="text-red-600 text-sm">{state.errors?.confirmPassword}</p>}
+          {state.errors?.confirmPassword && <p id="passwordConfirm-error" className="text-red-600 text-sm">{state.errors?.confirmPassword}</p>}
         </div>
         
-        <SubmitButton>
+        <SubmitButton id="register-button">
           Register
         </SubmitButton>
       </form>

@@ -9,6 +9,7 @@ interface NavLinkProps {
   exact?: boolean
   className?: string
   children: React.ReactNode
+  name?: string
 }
 
 const NavLink = ({ 
@@ -30,5 +31,3 @@ const NavLink = ({
 }
 
 export default NavLink
-
-// className="hover:text-gray-300"

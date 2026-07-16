@@ -27,7 +27,7 @@ const NewBlog = () => {
       <form action={formAction} className="flex flex-col gap-4 mt-4">
 
         <div>
-          <label htmlFor="title">title</label>
+          <label htmlFor="title">Title</label>
           <input
             id="title"
             name="title"
@@ -39,7 +39,7 @@ const NewBlog = () => {
         </div>
 
         <div>
-          <label htmlFor="author">author</label>
+          <label htmlFor="author">Author</label>
           <input
             id="author"
             name="author"
@@ -51,7 +51,7 @@ const NewBlog = () => {
         </div>
 
         <div>
-          <label htmlFor="url">url</label>
+          <label htmlFor="url">URL</label>
           <input
             id="url"
             name="url"
@@ -62,7 +62,7 @@ const NewBlog = () => {
           {state.errors?.url && <p className="text-red-600 text-sm">{state.errors?.url}</p>}
         </div>
 
-        <SubmitButton>
+        <SubmitButton id="create-blog-button">
           create
         </SubmitButton>
       </form>
