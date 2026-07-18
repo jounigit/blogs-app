@@ -48,7 +48,7 @@ jobs:
           fi
 
       - name: Run database migrations
-        run: npx drizzle-kit push --debug
+        run: npx drizzle-kit push
 
       - name: Run Playwright tests
         run: npx playwright test
