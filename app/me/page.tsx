@@ -57,7 +57,8 @@ export default async function MePage() {
           ? (<p data-testid="no-unread-blogs"  className="font-bold mt-4 mb-2">No unread blogs</p>)
           : <p className="font-bold mt-4 mb-2">Unread ({unReadBlogs.length})</p>
           }
-          
+
+          {/* **************** Unread section ************************** */}
           <ul data-testid="unread-section">
             {unReadBlogs.map((blog) => (
               // set elements in flex row with space between and center
@@ -74,6 +75,7 @@ export default async function MePage() {
             ))}
           </ul>
 
+          {/* **************** Read section ************************** */}
           <p className="font-bold mt-4 mb-2">Read ({readBlogs.length})</p>
           <ul>
             {readBlogs.map((blog) => (
@@ -89,7 +91,7 @@ export default async function MePage() {
 
       <hr className="border-t border-black my-4" />
 
-      {/*****************  API Token ***************/}
+      {/***********************  API Token ******************************/}
       <h3 className="text-xl font-bold">API Token</h3>
 
       {/* create light gray and 20px margins div  */}

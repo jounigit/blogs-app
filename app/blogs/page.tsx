@@ -47,7 +47,7 @@ const Blogs = async ({ searchParams, }: {
             </a>
             {blog.likes === 0 && <p>0 likes</p>}
             {blog.likes > 0 && <p>Likes: {blog.likes}</p>}
-            {/* <p>--------------------------</p> */}
+            
           </li>
         ))}
       </ul>
