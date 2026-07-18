@@ -11,7 +11,7 @@ export default function Notification() {
 
   return (
     <div
-      id="notification"
+      data-testid="notification"
       className={`mb-2 rounded px-4 py-2 text-white ${
         isSuccess ? "bg-green-600" : "bg-red-600"
       }`}

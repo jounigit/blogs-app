@@ -4,7 +4,6 @@ import { registerUser } from "@/app/actions/users"
 import { useActionState, useEffect } from "react"
 import { useNotification } from "../components/NotificationContext"
 import { useRouter } from "next/navigation"
-import SubmitButton from "../components/SubmitButton"
 
 export default function RegisterPage() {
   const [state, formAction] = useActionState( registerUser, { 
@@ -29,20 +28,22 @@ export default function RegisterPage() {
       <h2 className="text-2xl font-bold">Register</h2>
       <form action={formAction}>
         <div>
-          <label>Username</label>
+          <label htmlFor="username">Username</label>
             <input 
+              id="username"
               type="text" 
               name="username" 
               defaultValue={state.values?.username}
               required 
               className="border border-gray-300 rounded px-2 py-1 w-full"
             />
-          {state.errors?.username && <p className="text-red-600 text-sm">{state.errors?.username}</p>}
+          {state.errors?.username && <p data-testid="username-error" className="text-red-600 text-sm">{state.errors?.username}</p>}
         </div>
 
         <div>
-          <label>Name</label>
+          <label htmlFor="name">Name</label>
             <input 
+             id="name"
              type="text" 
              name="name" 
              defaultValue={state.values?.name} 
@@ -53,24 +54,28 @@ export default function RegisterPage() {
         </div>
 
         <div>
-          <label>Password</label>
-            <input type="password" name="password" required 
+          <label htmlFor="password">Password</label>
+            <input id="password" type="password" name="password" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
             />
           {state.errors?.password && <p className="text-red-600 text-sm">{state.errors?.password}</p>}
         </div>
 
         <div>
-          <label>Confirm Password</label>
-            <input type="password" name="confirmPassword" required 
+          <label htmlFor="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password" name="confirmPassword" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
             />
-          {state.errors?.confirmPassword && <p id="passwordConfirm-error" className="text-red-600 text-sm">{state.errors?.confirmPassword}</p>}
+          {state.errors?.confirmPassword && <p data-testid="passwordConfirm-error" className="text-red-600 text-sm">{state.errors?.confirmPassword}</p>}
         </div>
         
-        <SubmitButton id="register-button">
+        <button
+          type="submit"
+          data-testid="register-button"
+          className="bg-blue-600 w-fit text-white px-4 py-2 rounded mt-4 hover:bg-blue-700"
+        >
           Register
-        </SubmitButton>
+        </button>
       </form>
     </div>
   )

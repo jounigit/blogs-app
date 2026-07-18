@@ -3,7 +3,6 @@
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import SubmitButton from "../components/SubmitButton"
 import { useNotification } from "../components/NotificationContext"
 
 export default function LoginPage() {
@@ -34,23 +33,28 @@ export default function LoginPage() {
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h2 className="text-2xl font-bold">Login</h2>
-      {error && <p id="error-message" style={{ color: "red" }}>{error}</p>}
+      {error && <p data-testid="error-message" style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username</label>
-            <input type="text" name="username" required 
+          <label htmlFor="username">Username</label>
+            <input id="username" type="text" name="username" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
              />
         </div>
         <div>
-          <label>Password</label>
-            <input type="password" name="password" required 
+          <label htmlFor="password">Password</label>
+            <input id="password" type="password" name="password" required 
             className="border border-gray-300 rounded px-2 py-1 w-full"
              />
         </div>
-        <SubmitButton id="login-button">
+        <button
+          type="submit"
+          name="Login"
+          data-testid="login-button"
+          className="bg-blue-600 w-fit text-white px-4 py-2 rounded mt-4 hover:bg-blue-700"
+        >
           Login
-        </SubmitButton>
+        </button>
       </form>
     </div>
   )

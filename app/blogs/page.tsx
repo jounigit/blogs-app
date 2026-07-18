@@ -15,12 +15,13 @@ const Blogs = async ({ searchParams, }: {
   const searchButton = (
     <form method="get" className="mb-4">
       <input
+        data-testid="filter-input"
         type="text"
         name="filter"
         placeholder="Search blogs..."
         className="border border-gray-300 rounded px-2 py-1 mr-2"
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <button data-testid="search-button" type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         Search
       </button>
     </form>
@@ -30,7 +31,7 @@ const Blogs = async ({ searchParams, }: {
     <div className="max-w-2xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-4">blogs</h2>
       {searchButton}
-      <ul id="blogs-list" className="space-y-2">
+      <ul data-testid="blogs-list" className="space-y-2">
         {sortedBlogs.map(blog => (
           <li key={blog.id} className="mb-4">
             <NavLink
@@ -44,7 +45,8 @@ const Blogs = async ({ searchParams, }: {
             <a href={blog.url} target="_blank" rel="noopener noreferrer">
                 Read more
             </a>
-            <p>Likes: {blog.likes}</p>
+            {blog.likes === 0 && <p>0 likes</p>}
+            {blog.likes > 0 && <p>Likes: {blog.likes}</p>}
             {/* <p>--------------------------</p> */}
           </li>
         ))}

@@ -14,9 +14,9 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     }
 
     return (
-        <div id="blog-detail" className="max-w-2xl mx-auto p-6">
-            <h2 id="blog-title" className="text-2xl text-align: start">{blog.title}</h2>
-            <p id="blog-author">By {blog.author}</p>
+        <div data-testid="blog-detail" className="max-w-2xl mx-auto p-6">
+            <h2 data-testid="blog-title" className="text-2xl text-align: start">{blog.title}</h2>
+            <p data-testid="blog-author">By {blog.author}</p>
 
             {/* forms to inline div */}
             <div className="flex flex-row gap-4">
@@ -30,7 +30,11 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             <form action={addToReadingList} className="mt-4">
                 <input type="hidden" name="userId" value={user?.id} />
                 <input type="hidden" name="blogId" value={blog.id} />
-                <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                <button 
+                    type="submit" 
+                    data-testid="add-to-reading-list-button"
+                    className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                >
                     Add to Reading List
                 </button>
             </form>
